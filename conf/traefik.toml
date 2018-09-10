@@ -1,0 +1,50 @@
+defaultEntryPoints = ["http", "https"]
+# logLevel = "DEBUG"
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+
+[retry]
+
+[frontends]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "francisalexander.in"
+watch = true
+exposedbydefault = false
+
+[web]
+address = ":8080"
+readOnly = true
+
+[healthcheck]
+
+[file]
+[backends]
+
+[acme]
+email = "helofrancis@gmail.com"
+caServer  = "https://acme-v01.api.letsencrypt.org/directory"
+dnsProvider = "digitalocean"
+storage = "/acme/acme.json"
+entryPoint = "https"
+onHostRule = true
+acmelogging = true
+onDemand = false
+
+[acme.dnsChallenge]
+provider = "digitalocean"
+
+[[acme.domains]]
+main = "francisalexander.in"
+sans = [
+  "git.francisalexander.in",
+  "wiki.francisalexander.in",
+  "traefik.francisalexander.in"
+]
