@@ -1,3 +1,7 @@
+# Thanos
+
+Infrastructure setup using terraform and docker
+
 #### Introduction
 
 This whole setup was so that i could write my infrastructure using terraform and get it deployed on docker.
