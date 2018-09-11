@@ -39,7 +39,7 @@ paths:
 # In megabytes (MB)
 
 uploads:
-  maxImageFileSize: 3
+  maxImageFileSize: 5
   maxOtherFileSize: 100
 
 # ---------------------------------------------------------------------
