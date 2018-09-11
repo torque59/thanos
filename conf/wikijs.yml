@@ -140,7 +140,7 @@ git:
     sslVerify: true
 
   # Default email to use as commit author
-  serverEmail: me@tunnelshade.in
+  serverEmail: helofrancis@gmail.com
 
   # Whether to use user email as author in commits
   showUserEmail: false
