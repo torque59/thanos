@@ -20,6 +20,6 @@ Terraform -> docker -> Trafeik -> git.francisalexander.in
 
 - terraform init thanos/  
 `Should initialise the terraform plugins required, ex: docker,digitalocean`
-- terraform plan -out=prod-thanos thanos/ 
+- terraform plan -out=prod-thanos thanos/  
 `Should plan out the entire structure and you should see zero errors. Initialist your secret variables using terraform.tfvars`
 - terraform apply prod-thanos
