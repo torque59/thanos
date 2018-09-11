@@ -12,6 +12,11 @@ variable "do_token" {
   type    = "string"
 }
 
+variable "email" {
+  type = "string"
+  default = "helofrancis@gmail.com"
+}
+
 variable "gitea_dbname" {
   type = "string"
   default = "gitea"
