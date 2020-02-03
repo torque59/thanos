@@ -1,5 +1,5 @@
 data "docker_registry_image" "postgres" {
-  name = "postgres:alpine"
+  name = "postgres:11-alpine"
 }
 
 resource "docker_image" "postgres" {
@@ -21,6 +21,13 @@ resource "docker_container" "postgres" {
     content = "${file("${path.module}/conf/gitea.sql")}"
     file    = "/docker-entrypoint-initdb.d/gitea.sql"
   }
+
+  upload {
+    content = "${file("${path.module}/conf/wikijs.sql")}"
+    file    = "/docker-entrypoint-initdb.d/wikijs.sql"
+  }
+
+
 
   env = [
     "POSTGRES_USER=${var.postgres_username}",

@@ -11,8 +11,6 @@ defaultEntryPoints = ["http", "https"]
 
 [retry]
 
-[frontends]
-
 [docker]
 endpoint = "unix:///var/run/docker.sock"
 domain = "francisalexander.in"
@@ -27,6 +25,12 @@ readOnly = true
 
 [file]
 [backends]
+#  [wikijs]
+#    port = 8081
+
+[frontends]
+#  backend = "wikijs"
+#  rule = "Host:wiki.francisalexander.in"
 
 [acme]
 email = "helofrancis@gmail.com"

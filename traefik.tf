@@ -3,7 +3,7 @@ provider "docker" {
 }
 
 data "docker_registry_image" "traefik" {
-  name = "traefik:latest"
+  name = "traefik:v1.7.16"
 }
 
 resource "docker_image" "traefik" {

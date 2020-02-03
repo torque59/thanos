@@ -8,11 +8,11 @@ resource "docker_image" "wikijs" {
 resource "docker_container" "wikijs" {
   name  = "wikijs"
   image = "${docker_image.wikijs.latest}"
-  links = ["mongo"]
+  links = ["postgres"]
 
   labels = "${merge(
     var.traefik-common-labels, map(
-      "traefik.port", 443,
+      "traefik.port", 8081,
       "traefik.frontend.rule","Host:wiki.${var.domain}"
   ))}"
 
@@ -26,7 +26,7 @@ resource "docker_container" "wikijs" {
   }
    upload {
     content = "${file("${path.module}/conf/wikijs.yml")}"
-    file    = "/var/wiki/config.yml"
+    file    = "/wiki/config.yml"
   }
    env = ["WIKI_ADMIN_EMAIL=${var.email}", "MONGODB_CONNECTION_URI=mongodb://mongodb:27017/wiki"]
    memory                = 512

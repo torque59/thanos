@@ -23,7 +23,7 @@ host: https://wiki.francisalexander.in
 # ---------------------------------------------------------------------
 # To use process.env.PORT, comment the line below:
 
-port: 443
+port: 8081
 
 # ---------------------------------------------------------------------
 # Data Directories
@@ -115,8 +115,16 @@ sessionSecret: 1234567890abcdefghijklmnopqrstuvxyz
 # Database Connection String
 # ---------------------------------------------------------------------
 
-# db: mongodb://localhost:27017/wiki
-db: $(MONGODB_CONNECTION_URI)
+db: 
+  type: postgres
+  host: postgres
+  port: 5432
+  user: wikijs #Change to credential
+  pass: wikijs #Change to credential
+  db: wikijs
+  ssl: false
+#mongodb://localhost:27017/wiki
+#db: $(MONGODB_CONNECTION_URI)
 
 # ---------------------------------------------------------------------
 # Git Connection Info
